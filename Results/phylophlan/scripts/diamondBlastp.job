@@ -1,0 +1,28 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/phylophlan/scripts
+#$ -q all.q@anomandaris.local
+#$ -r y
+#$ -j y
+#$ -o ./logs/
+#$ -pe mpi 50
+#$ -N diamondblastp
+
+echo "Start"
+
+source /home/aswin/irsingh/.bashrc
+source /home/aswin/irsingh/softwares/miniconda3/bin/activate seqTools
+
+source  ./diamondBlastp.config
+# Create output directory if it doesn't exist
+mkdir -p "$path_o"
+
+for i in "$seqFiles"/*
+do
+    base=$(basename "$i" .faa.gz)
+    echo "Processing file: $base"
+    diamond blastp --threads 50 --db $database --header --evalue 0.000001 --very-sensitive --query $i --outfmt 6 --out $path_o/$base.dmd.tsv --tmpdir $temp ;
+done
+
+# echo "done"
+

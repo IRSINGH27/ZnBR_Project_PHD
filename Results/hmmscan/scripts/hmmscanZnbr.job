@@ -1,0 +1,44 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/hmmscan/scripts
+#$ -q all.q@anomandaris.local
+#$ -r y
+#$ -j y
+#$ -o ./logs/
+#$ -pe mpi 50
+#$ -N hmmZnBR
+
+echo "Start"
+
+source /home/aswin/irsingh/.bashrc
+source /home/aswin/irsingh/softwares/miniconda3/bin/activate seqTools
+
+source  ./hmmscanZnbr.config
+# Create output directory if it doesn't exist
+mkdir -p "$path_o/tblout"
+mkdir -p "$path_o/hmminfo"
+mkdir -p "$path_o/domtblout"
+
+echo "$seqFiles"
+
+seq_files=("$seqFiles"/*.faa.gz)
+
+run_hmmscan(){
+	source  ./hmmscanZnbr.config
+	i=$1
+	base=$(basename "$i" .faa.gz)
+	tblout="$path_o/tblout/$base.tblout"
+	domtblout="$path_o/domtblout/$base.domtblout"
+	info="$path_o/hmminfo/$base.info"
+	echo "Processing file: $base"
+	hmmscan --tblout $tblout --domtblout $domtblout --cpu 1 $hmmprofile $i > $info
+}
+
+export -f run_hmmscan
+export path_0 hmmprofile
+
+#echo $path_o
+printf "%s\n" "${seq_files[@]}" |xargs -I {} -P 50 bash -c 'run_hmmscan "{}"'
+#printf "%s\n" "${seq_files[@]}"
+echo "done"
+

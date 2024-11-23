@@ -1,0 +1,37 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/scripts
+#$ -q all.q@anomandaris.local
+#$ -r y
+#$ -j y
+#$ -o ./logs/
+#$ -pe mpi 80
+#$ -N muscleRNASeq
+echo "Start"
+
+source /home/aswin/irsingh/.bashrc
+source /home/aswin/irsingh/softwares/miniconda3/bin/activate seqTools
+
+seqFiles="/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/rnaSeq/nonDuplicated"
+path_o="/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/rnaSeq/MSA"
+
+seqFiles="/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/rnaSeq/nonDuplicated"
+path_o="/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/rnaSeq/MSA"
+
+# Create output directory if it doesn't exist
+mkdir -p "$path_o"
+
+for i in "$seqFiles"/*
+do
+    base=$(basename "$i" .nondup.fasta)
+    echo "Processing file: $i"
+    # echo "muscle -super5 "$i" -output "$path_o/${base}/${base}_abc.msa" -perm abc -threads 20 &"
+    muscle -super5 "$i" -output "$path_o/${base}/${base}_abc.msa" -perm abc -threads 20 &
+    muscle -super5 "$i" -output "$path_o/${base}/${base}_acb.msa" -perm acb -threads 20 &
+    muscle -super5 "$i" -output "$path_o/${base}/${base}_bca.msa" -perm bca -threads 20 &
+    muscle -super5 "$i" -output "$path_o/${base}/${base}_none.msa" -perm none -threads 20 &
+    wait
+done
+
+# echo "done"
+
