@@ -7,6 +7,7 @@ timeTest/
 
 # extention
 
+*.o*
 *.h3m
 *.msa
 *.config
