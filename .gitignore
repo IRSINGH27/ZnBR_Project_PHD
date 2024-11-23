@@ -4,6 +4,7 @@ proteomeData/
 genomeData/
 timeTest/
 **/logs/
+**/hmminfo/
 
 # extention
 
