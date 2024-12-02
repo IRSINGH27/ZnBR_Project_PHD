@@ -32,3 +32,16 @@ timeTest/
 *.h3m
 *.h3p
 *.idmap
+*.bionj
+*.contree
+*.gz
+*.iqtree
+*.log
+*.mldist
+*.nex
+*.phy
+*.runtrees
+*.treefile
+*.nwk*
+*.trees
+*.efa
