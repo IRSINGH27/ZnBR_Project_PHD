@@ -44,3 +44,6 @@ ZnBRSequences/
 *.nwk*
 *.trees
 *.efa
+*.annotations
+*.hits
+*.seed_orthologs
