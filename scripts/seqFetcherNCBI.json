@@ -1,0 +1,6 @@
+{   
+"inputFile":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/WoL_for_ZnBR_work.tsv",
+"outputFolder":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/genomeData",
+"ncores":20,
+"protein":0
+}
