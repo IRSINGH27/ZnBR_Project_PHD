@@ -12,10 +12,8 @@ ZnBRSequences/
 *.o*
 *.h3m
 *.msa
-*.config
 *.fna
 *.fasttree
-*.json
 *.h3i
 *.h3p
 *.faa
