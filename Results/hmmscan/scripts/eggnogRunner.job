@@ -1,0 +1,45 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/hmmscan/scripts
+#$ -q all.q@anomandaris.local
+#$ -r y
+#$ -j y
+#$ -o ./logs/
+#$ -pe mpi 100
+#$ -N eggnogZNBR
+echo "Start"
+
+source /home/aswin/irsingh/.bashrc
+source /home/aswin/irsingh/softwares/miniconda3/bin/activate eggnogEnv
+
+source  ./hmmscanEggnog.config
+
+mkdir -p "$path_o/tblout"
+mkdir -p "$path_o/hmminfo"
+mkdir -p "$path_o/domtblout"
+
+# Create output directory if it doesn't exist
+
+echo "$seqFiles"
+
+seq_files=("$seqFiles"/*.faa)
+
+run_hmmscan(){
+	source ./hmmscanEggnog.config
+	i=$1
+	base=$(basename "$i" .faa)
+	tblout="$path_o/tblout/$base.tblout"
+	domtblout="$path_o/domtblout/$base.domtblout"
+	info="$path_o/hmminfo/$base.info"
+	echo "Processing file: $base"
+	hmmscan -E 0.001 --tblout $tblout --domtblout $domtblout --cpu 2 $hmmprofile $i > $info
+}
+
+export -f run_hmmscan
+export path_o hmmprofile
+
+printf "%s\n" "${seq_files[@]}" |xargs -I {} -P 50 bash -c 'run_hmmscan "{}"'
+
+
+# echo "done"
+
