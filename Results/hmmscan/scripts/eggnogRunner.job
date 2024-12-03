@@ -5,7 +5,7 @@
 #$ -r y
 #$ -j y
 #$ -o ./logs/
-#$ -pe mpi 120
+#$ -pe mpi 118
 #$ -N eggnogZNBR
 echo "Start"
 
@@ -37,7 +37,7 @@ run_hmmscan(){
 export -f run_hmmscan
 export path_o hmmprofile
 
-printf "%s\n" "${seq_files[@]}" |xargs -I {} -P 60 bash -c 'run_hmmscan "{}"'
+printf "%s\n" "${seq_files[@]}" |xargs -I {} -P 59 bash -c 'run_hmmscan "{}"'
 
 
 # echo "done"
