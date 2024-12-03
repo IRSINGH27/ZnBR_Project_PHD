@@ -2,9 +2,10 @@ import pandas as pd
 from math import log2
 from multiprocessing import Pool
 from os import listdir,path
+import re
 
 def filterDF(fileName:str,threshold_p=0.999):
-    orgName=fileName.split('/')[-1].split('.',1)[0]
+    orgName=re.findall(r'GC[AF]_\d+',fileName)[0]
     threshold=log2(threshold_p/(1-threshold_p))
     df=pd.read_csv(fileName,sep='\t',index_col=0)
     df=df[(df['E-value']<=.001) & (df['score']>=threshold)]
