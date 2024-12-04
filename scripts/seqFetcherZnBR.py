@@ -1,13 +1,14 @@
 import multiprocessing as mp
 import numpy as np
 
-def pandasFileReader(fileName:str,threshold=.999):
+def pandasFileReader(fileName:str,threshold_p=.999):
     import re
     import pandas as pd
     from math import log2
     orgName=re.findall(r'GC[AF]_\d+',fileName)[0]
     df=pd.read_csv(fileName,sep='\t',index_col=0)
-    df=df[(df['E-value']<=.001) & (df['score']>=log2(threshold))]
+    threshold=log2(threshold_p/(1-threshold_p))
+    df=df[(df['E-value']<=.001) & (df['score']>=threshold)]
     df=df.sort_values('score',ascending=False).drop_duplicates(['query_name'])
     return orgName,df.query_name.unique()
 

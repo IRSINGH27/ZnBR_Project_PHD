@@ -1,0 +1,20 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/eggNogOG/scripts
+#$ -q all.q@anomandaris.local
+#$ -r y
+#$ -j y
+#$ -o ./logs/
+#$ -pe mpi 100
+#$ -N eggnogZNBR
+
+echo "Start"
+
+source /home/aswin/irsingh/.bashrc
+source /home/aswin/irsingh/softwares/miniconda3/bin/activate eggnogEnv
+
+source  ./eggnogRunner.config
+
+# Create output directory if it doesn't exist
+emapper.py --cpu 100 -i $seqFile --itype proteins -m mmseqs --dbmem --md5 --output $outputFile --output_dir $outputDir
+

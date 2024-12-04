@@ -6,16 +6,16 @@ timeTest/
 **/logs/
 **/hmminfo/
 ZnBRSequences/
+**/old.dir/
+**/emappertmp*
 
 # extention
 
 *.o*
 *.h3m
 *.msa
-*.config
 *.fna
 *.fasttree
-*.json
 *.h3i
 *.h3p
 *.faa
@@ -46,3 +46,7 @@ ZnBRSequences/
 *.nwk*
 *.trees
 *.efa
+*.annotations
+*.hits
+*.seed_orthologs
+test.ipynb

@@ -1,12 +1,12 @@
 #!/bin/bash
 #$ -S /bin/bash
 #$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/scripts
-#$ -q all.q@anomandaris.local
+#$ -q all.q@chrosmos.local
 #$ -r y
 #$ -j y
 #$ -o ./logs/
-#$ -pe mpi 50
-#$ -N ZnBRSeqFetch
+#$ -pe mpi 32
+#$ -N ZnBRSeqFetch -l h_vmem=50G
 
 echo "Start"
 

@@ -1,0 +1,8 @@
+{
+	"inputFile":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/hmmscan/ZnBR/pandas_tblout",
+	"outputFolder":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/ZnBRSequences",
+	"ncores":32,
+	"seqFilePath":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/proteomeData"
+}
+
+
