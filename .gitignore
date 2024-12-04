@@ -49,3 +49,4 @@ ZnBRSequences/
 *.annotations
 *.hits
 *.seed_orthologs
+test.ipynb
