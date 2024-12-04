@@ -3,6 +3,7 @@
 proteomeData/
 genomeData/
 timeTest/
+**/test/
 **/logs/
 **/hmminfo/
 ZnBRSequences/
