@@ -12,6 +12,7 @@ ZnBRSequences/
 
 # extention
 
+*.parquet
 *.o*
 *.h3m
 *.msa
