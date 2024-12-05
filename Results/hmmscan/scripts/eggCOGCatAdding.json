@@ -1,0 +1,6 @@
+{
+    "inputFolder":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/hmmscan/eggnogOG/filtered_tblout",
+    "output":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/hmmscan/eggnogOG/eggNOG_hmmScan_with_COG_annotated.parquet",
+    "db_name":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/eggnogHMMProfiles/EggNOG_OG_description_prokaryotes.parquet",
+    "ncores":100
+}

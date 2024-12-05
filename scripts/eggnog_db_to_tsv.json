@@ -1,0 +1,5 @@
+{
+    "db_file":"/home/aswin/irsingh/softwares/miniconda3/envs/eggnogEnv/lib/python3.12/site-packages/data/eggnog.db",
+    "table_name":"og",
+    "output":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/EggNOG_OG_description.parquet"
+}
