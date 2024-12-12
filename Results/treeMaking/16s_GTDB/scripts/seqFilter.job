@@ -1,0 +1,15 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/scripts
+#$ -q all.q@anomandaris.local
+#$ -r y
+#$ -j y
+#$ -o ./logs/
+#$ -pe mpi 100
+#$ -N SeqFilter
+echo "Start"
+
+source /home/aswin/irsingh/.bashrc
+source /home/aswin/irsingh/softwares/miniconda3/bin/activate codingEnv
+
+python ./seqFilter.py

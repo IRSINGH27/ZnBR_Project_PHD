@@ -1,24 +1,20 @@
 #!/bin/bash
 #$ -S /bin/bash
-#$ -cwd
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/scripts
 #$ -q all.q@anomandaris.local
 #$ -r y
 #$ -j y
 #$ -o ./logs/
-#$ -pe mpi 50
+#$ -pe mpi 100
 #$ -N muscleRNASeq
 
 source /home/aswin/irsingh/.bashrc
 source /home/aswin/irsingh/softwares/miniconda3/bin/activate seqTools
-seqFile='16SrRNA_afterFilter.nondup.fna'
-name='./msa/16SrRNA_afterFilter.nondup'
+
+seqFile="/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/16SrRNA_filtered.nondup.fna"
+name="/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/msa/16SrRNA_filtered.nondup.@.afa"
 
 echo "start"
-muscle -super5 $seqFile -output $name.abc.$i.msa -threads 50 -perm abc;
-muscle -super5 $seqFile -output $name.bca.$i.msa -threads 50 -perm bca;
-muscle -super5 $seqFile -output $name.acb.$i.msa -threads 50 -perm acb;
-muscle -super5 $seqFile -output $name.none.$i.msa -threads 50 -perm none;
-wait
-done
+muscle -super5 $seqFile -output $name -threads 100 -perm all;
 
 echo "done all"

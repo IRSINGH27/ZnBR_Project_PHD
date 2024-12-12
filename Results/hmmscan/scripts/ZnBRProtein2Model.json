@@ -1,0 +1,5 @@
+{
+    "inputFolder":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/hmmscan/ZnBR/pandas_tblout",
+    "finalMatrix":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/hmmscan/ZnBR/Organism_ZnBR_protein_model.tsv",
+    "ncores":100
+}

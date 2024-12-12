@@ -1,0 +1,6 @@
+{
+    "seqFile":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/16SrRNA.fna",
+    "dbOutput":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/16SrRNA_info.tsv",
+    "ncores":100,
+    "seqOutput":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/16SrRNA_filtered.fna"
+}

@@ -1,0 +1,6 @@
+{
+    "folderName":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/Ancestral_State_Reconstruction/16S_rRNA/asr_matrixes",
+    "output":"/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/Ancestral_State_Reconstruction/16S_rRNA/NodeAsrPresentAt75.tsv",
+    "ncores":100,
+    "threshold":0.75
+}

@@ -1,0 +1,19 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/Ancestral_State_Reconstruction/16S_rRNA/scripts
+#$ -q all.q@anomandaris.local
+#$ -r y
+#$ -j y
+#$ -o ./logs/
+#$ -pe mpi 100
+#$ -N asrMerger
+
+echo "Start"
+
+source /home/aswin/irsingh/.bashrc
+source /home/aswin/irsingh/softwares/miniconda3/bin/activate codingEnv
+
+python ./nodeASRMatrix.py
+#printf "%s\n" "${seq_files[@]}"
+echo "done"
+

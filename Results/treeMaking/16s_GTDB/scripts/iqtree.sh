@@ -1,6 +1,6 @@
 #!/bin/bash
 #$ -S /bin/bash
-#$ -cwd
+#$ -wd /data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/scripts
 #$ -q all.q@anomandaris.local
 #$ -r y
 #$ -j y
@@ -11,7 +11,7 @@
 source /home/aswin/irsingh/.bashrc
 source /home/aswin/irsingh/softwares/miniconda3/bin/activate phyloEnv
 
-msaFile='/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/msa/16SrRNA.maxcc.trimal.msa'
+msaFile='/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/16SrRNA_filtered.nondup.trimal.afa'
 prefix='/data/irsingh/Zinc_Work/WoL_reset_18Nov2025/Results/treeMaking/16s_GTDB/tree/16SrRNA_tree'
 
 echo "start"

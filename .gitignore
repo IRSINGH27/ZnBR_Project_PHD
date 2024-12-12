@@ -11,7 +11,12 @@ ZnBRSequences/
 **/emappertmp*
 
 # extention
-
+*.afa
+*.besttree
+*.RData
+*.treeTesting
+*.err
+*.out
 *.parquet
 *.o*
 *.h3m
@@ -51,4 +56,4 @@ ZnBRSequences/
 *.annotations
 *.hits
 *.seed_orthologs
-test.ipynb
+test*.ipynb
